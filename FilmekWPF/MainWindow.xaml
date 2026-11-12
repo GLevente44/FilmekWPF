@@ -1,0 +1,57 @@
+﻿<Window x:Class="FilmekWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FilmekWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="60*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5,30,30,0">
+
+            <Button Content="Filmek betöltése" Height="27" Margin="0,0,0,12" Click="btnBetoltes_Click"/>
+
+            <Button Content="Hány film van?" Height="27" Margin="0,0,0,12" Click="btnDarab_Click"/>
+
+            <Button Content="Leghosszabb film?"  Height="27" Margin="0,0,0,12" Click="btnLeghosszabb_Click"/>
+
+            <Button Content="Átlag értékelés" Height="27" Margin="0,0,0,12" Click="btnAtlag_Click"/>
+
+            <Button Content="Csak sci-fi" Height="27" Margin="0,0,0,12" Click="btnSciFi_Click"/>
+
+            <Button Content="Csak címek" Height="27" Margin="0,0,0,12" Click="btnCimek_Click"/>
+
+            <Button Content="Rendezés cím szerint" Height="27" Margin="0,0,0,12" Click="btnRendezes_Click"/>
+
+            <ProgressBar x:Name="pbFilmek" Height="25" Minimum="0" Maximum="5"  Value="0" Margin="0,0,0,0"/>
+        </StackPanel>
+
+
+        <DataGrid x:Name="dgFilmek"
+                  Grid.Column="1"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  HeadersVisibility="Column"
+                  GridLinesVisibility="All"
+                  SelectionMode="Single"
+                  SelectionChanged="dgFilmek_SelectionChanged">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Cím" Width="*"/>
+
+                <DataGridTextColumn Header="Műfaj" Width="*"/>
+
+                <DataGridTextColumn Header="Hossz" Width="*"/>
+
+                <DataGridTextColumn Header="Értékelés" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
